@@ -13,7 +13,87 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+    <style>
+        .widget {
+            width: 100%;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .5)
+        }
+
+        .widget-header h1,
+        .widget-header h2,
+        .widget-header h3,
+        .widget-header h4,
+        .widget-header h5 {
+            font-family: 'Advent Pro', sans-serif;
+            text-align: center;
+            padding: .5em 0;
+            margin: 0
+        }
+
+        .lateness-report-widget-controls {
+            text-align: center
+        }
+
+        .widget-header {
+            padding: 0 1em 0 1em
+        }
+
+        .widget-footer {
+            background: #e6f4fb;
+            line-height: 2em;
+            text-align: center;
+            -webkit-border-radius: 0 0 5px 5px;
+            -moz-border-radius: 0 0 5px 5px;
+            border-radius: 0 0 5px 5px
+        }
+
+        .widget-footer-more-link,
+        .widget-footer-more-link:hover {
+            color: #76c3f2
+        }
+
+        .widget-footer-more-link.is_disabled {
+            color: #666;
+            text-decoration: none;
+            cursor: default;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .5)
+        }
+
+        .late-agents-widget-employee-table {
+            margin: auto;
+            width: 100%
+        }
+
+        .late-agents-widget-employee-table td {
+            border: 6px solid transparent
+        }
+
+        .late-agents-widget-employee-table th {
+            text-align: center
+        }
+
+        .late-agents-widget-content {
+            min-height: 6em;
+            padding: 0 0 1em 0
+        }
+
+        .late-agents-widget-employee-full-name {
+            font-weight: 700;
+            text-align: right;
+            width: 50%
+        }
+        .widget-heading{
+            background-color: red;
+            font-weight: 400;
+        }
+    </style>
 </head>
+
 
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -133,7 +213,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/45" class="online-agent-name">Fang Shen</a> <span
-                                        class="online-agent-name">Fang Shen</span></td>
+                                        class="online-agent-name">Fang Shen</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -192,7 +273,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/46" class="online-agent-name">Mohamed Krogh</a>
-                                    <span class="online-agent-name">Mohamed Krogh</span></td>
+                                    <span class="online-agent-name">Mohamed Krogh</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -251,7 +333,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/44" class="online-agent-name">Thomas Cook</a> <span
-                                        class="online-agent-name">Thomas Cook</span></td>
+                                        class="online-agent-name">Thomas Cook</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -306,7 +389,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/42" class="online-agent-name">Ellis Hart</a> <span
-                                        class="online-agent-name">Ellis Hart</span></td>
+                                        class="online-agent-name">Ellis Hart</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -365,7 +449,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/43" class="online-agent-name">MIndy Jameson</a>
-                                    <span class="online-agent-name">MIndy Jameson</span></td>
+                                    <span class="online-agent-name">MIndy Jameson</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -424,7 +509,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/39" class="online-agent-name">Cheryl Guillen</a>
-                                    <span class="online-agent-name">Cheryl Guillen</span></td>
+                                    <span class="online-agent-name">Cheryl Guillen</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -483,7 +569,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/41" class="online-agent-name">Tia Sanders</a> <span
-                                        class="online-agent-name">Tia Sanders</span></td>
+                                        class="online-agent-name">Tia Sanders</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -538,7 +625,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/49" class="online-agent-name">Chadwick Singh</a>
-                                    <span class="online-agent-name">Chadwick Singh</span></td>
+                                    <span class="online-agent-name">Chadwick Singh</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -593,7 +681,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/40" class="online-agent-name">Jackson Gollan</a>
-                                    <span class="online-agent-name">Jackson Gollan</span></td>
+                                    <span class="online-agent-name">Jackson Gollan</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -653,7 +742,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/50" class="online-agent-name">Michelle Hurley</a>
-                                    <span class="online-agent-name">Michelle Hurley</span></td>
+                                    <span class="online-agent-name">Michelle Hurley</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -712,7 +802,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/47" class="online-agent-name">Micahel Redmond</a>
-                                    <span class="online-agent-name">Micahel Redmond</span></td>
+                                    <span class="online-agent-name">Micahel Redmond</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
@@ -771,7 +862,8 @@
                                             class="online-indicator on"
                                             ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
                                     <a href="#/manage/users/profile/48" class="online-agent-name">Aymon Cousteau</a>
-                                    <span class="online-agent-name">Aymon Cousteau</span></td>
+                                    <span class="online-agent-name">Aymon Cousteau</span>
+                                </td>
                                 <!---->
                                 <!---->
                                 <td ng-if="showComputerName" class="online-agent-computer-cell"><a
