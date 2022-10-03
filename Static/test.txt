@@ -1,0 +1,1 @@
+Hello everyone I am test.txt from Static folder

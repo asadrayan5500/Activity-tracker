@@ -1,922 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee's Activity</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
-    <style>
-        .widget {
-            width: 100%;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
-            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, .5)
-        }
+{% block title %} Home {% endblock title %}
 
-        .widget-header h1,
-        .widget-header h2,
-        .widget-header h3,
-        .widget-header h4,
-        .widget-header h5 {
-            font-family: 'Advent Pro', sans-serif;
-            text-align: center;
-            padding: .5em 0;
-            margin: 0
-        }
+{% block body %}
+<!-- On tables -->
+<div class="container my-150 " >
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Activity Id </th>
+        <th scope="col">Employee Id </th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+        <th scope="col">Activity Date</th>
+        <th scope="col">Transaction Id </th>
+        <th scope="col">Status</th>
+        <th scope="col">Idle time </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
 
-        .lateness-report-widget-controls {
-            text-align: center
-        }
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
 
-        .widget-header {
-            padding: 0 1em 0 1em
-        }
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
 
-        .widget-footer {
-            background: #e6f4fb;
-            line-height: 2em;
-            text-align: center;
-            -webkit-border-radius: 0 0 5px 5px;
-            -moz-border-radius: 0 0 5px 5px;
-            border-radius: 0 0 5px 5px
-        }
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
 
-        .widget-footer-more-link,
-        .widget-footer-more-link:hover {
-            color: #76c3f2
-        }
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
 
-        .widget-footer-more-link.is_disabled {
-            color: #666;
-            text-decoration: none;
-            cursor: default;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, .5)
-        }
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>
 
-        .late-agents-widget-employee-table {
-            margin: auto;
-            width: 100%
-        }
-
-        .late-agents-widget-employee-table td {
-            border: 6px solid transparent
-        }
-
-        .late-agents-widget-employee-table th {
-            text-align: center
-        }
-
-        .late-agents-widget-content {
-            min-height: 6em;
-            padding: 0 0 1em 0
-        }
-
-        .late-agents-widget-employee-full-name {
-            font-weight: 700;
-            text-align: right;
-            width: 50%
-        }
-        .widget-heading{
-            background-color: red;
-            font-weight: 400;
-        }
-    </style>
-</head>
-
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Activity Tracker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Activity Transaction</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="dashboard-tile">
-        <div class="panel" ng-class="widgetSizeClass()" widget="widget" row-height="gridsterOptions.rowHeight"
-            modal-handle="configController.openConfigModal(reportWidgetsId)" any-activity="anyActivity">
-            <div class="widget-head">
-                <h2 class="widget-heading">Online employees</h2>
-               
-                <div class="widget-controls pull-right"><a class="icon-link widget-controls" href=""
-                        title="Edit this widget's name and the data it displays" ng-mousedown="$event.stopPropagation()"
-                        ng-click="editWidget()" ng-disabled="deleting" style="position: relative;"><i
-                            class="icons8-Settings-Filled" tooltip="Edit this widget's name and the data it displays"
-                            tooltip-placement="bottom" tooltip-popup-delay="1000"></i></a> <a
-                        class="icon-link widget-controls widget-control-delete" href=""
-                        title="Remove widget from dashboard" ng-mousedown="$event.stopPropagation()"
-                        ng-click="deleteWidget()" ng-disabled="deleting" style="position: relative;"><i
-                            class="icons8-Delete-Sign" tooltip="Remove widget from dashboard" tooltip-placement="bottom"
-                            tooltip-popup-delay="1000"></i></a></div>
-                <div ng-show="!loading" class="agent-state-counters">
-                    <div class="stat-counter-container"><span class="stat-counter online-counter"
-                            ng-class="{'empty-dashboard-fonts': !anyActivity}">12</span> <span
-                            class="stat-title online-counter" translate="DASHBOARDS.ONLINE_PLURAL"
-                            ng-class="{'empty-dashboard-fonts': !anyActivity}">Online</span></div>
-                    <div class="stat-counter-container"><span class="stat-counter idle-counter"
-                            ng-class="{'empty-dashboard-fonts': !anyActivity}">0</span> <span
-                            class="stat-title idle-counter" translate="DASHBOARDS.IDLE_PLURAL"
-                            ng-class="{'empty-dashboard-fonts': !anyActivity}">Idle</span></div>
-                </div>
-                <div class="widget-messages"><span class="empty-widget-header-message empty-dashboard-message"><span
-                            translate="DASHBOARDS.WAITING_FOR_DATA">Waiting for data</span>
-                        <!---->
-                    </span></div>
-            </div>
-            <div class="widget-body tall-widget" ng-class="{'tall-widget': widget.size.y > 5, 'no-data': !anyActivity}">
-                <div ng-show="!loading" class="online-agents-widget-body">
-                    <table
-                        class="table online-agents-table online-agents-w__computer online-agents-w__activity online-agents-w__time online-agents-w__productivity"
-                        ng-class="getTableClasses()">
-                        <thead>
-                            <tr>
-                                <!---->
-                                <th ng-if="showEmployeeName" translate="COMMON.EMPLOYEE">Employee</th>
-                                <!---->
-                                <!---->
-                                <th ng-if="showComputerName" class="online-agent-computer-cell"
-                                    translate="COMMON.COMPUTER">Computer</th>
-                                <!---->
-                                <!---->
-                                <th ng-if="showCurrentTask" translate="DASHBOARDS.CURRENT_TASK">Current task</th>
-                                <!---->
-                                <!---->
-                                <th ng-if="showActivityName" class="online-agent-activity-cell"
-                                    translate="DASHBOARDS.CURRENT_ACTIVITY">Current activity</th>
-                                <!---->
-                                <!---->
-                                <th ng-if="showTimeWorked" class="online-agent-time-cell"
-                                    translate="DASHBOARDS.TIME_WORKED">Time worked</th>
-                                <!---->
-                                <!---->
-                                <th ng-if="showActivity" class="online-agent-productivity-cell"
-                                    translate="COMMON.ACTIVITY">Activity</th>
-                                <!---->
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Fang Shen"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/45/avatar/sm?v=avatars/XNfObd9QSNtQ.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/45" class="online-agent-name">Fang Shen</a> <span
-                                        class="online-agent-name">Fang Shen</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Envisioning</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.amazon.de">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.amazon.de" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=dfd1ef4e63a64037c12fba98dfa1bb28"
-                                        src="/activity-icon/?hash=dfd1ef4e63a64037c12fba98dfa1bb28">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.amazon.de</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:23</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Mohamed Krogh"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/46/avatar/sm?v=avatars/ARzRbkySXFBc.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/46" class="online-agent-name">Mohamed Krogh</a>
-                                    <span class="online-agent-name">Mohamed Krogh</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Envisioning</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="twitter.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: twitter.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=65e636d606d7743ce4a679eab269718e"
-                                        src="/activity-icon/?hash=65e636d606d7743ce4a679eab269718e">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">twitter.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:23</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Thomas Cook"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/44/avatar/sm?v=avatars/tceCHNduBEaj.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/44" class="online-agent-name">Thomas Cook</a> <span
-                                        class="online-agent-name">Thomas Cook</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="app.slack.com">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">app.slack.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">0:51</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="21"
-                                            height="35"
-                                            style="display: inline-block; width: 21px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Ellis Hart"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/42/avatar/sm?v=avatars/Eru6Pndi9sym.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/42" class="online-agent-name">Ellis Hart</a> <span
-                                        class="online-agent-name">Ellis Hart</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Build</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.ebay.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.ebay.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=27825b67682e8ffcc4f1e8d9f06965fb"
-                                        src="/activity-icon/?hash=27825b67682e8ffcc4f1e8d9f06965fb">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.ebay.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:23</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="MIndy Jameson"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/43/avatar/sm?v=avatars/2dsZAtMUQhDX.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/43" class="online-agent-name">MIndy Jameson</a>
-                                    <span class="online-agent-name">MIndy Jameson</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.facebook.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.facebook.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=b670561e0b1735d77b353823184a4a35"
-                                        src="/activity-icon/?hash=b670561e0b1735d77b353823184a4a35">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.facebook.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">0:29</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="11"
-                                            height="35"
-                                            style="display: inline-block; width: 11px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Cheryl Guillen"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/39/avatar/sm?v=avatars/wFLBvFvZsI0P.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/39" class="online-agent-name">Cheryl Guillen</a>
-                                    <span class="online-agent-name">Cheryl Guillen</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.jpmorgan.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.jpmorgan.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=59bf7e716b5c5564a1850d4db7fa32a6"
-                                        src="/activity-icon/?hash=59bf7e716b5c5564a1850d4db7fa32a6">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.jpmorgan.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:22</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Tia Sanders"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/41/avatar/sm?v=avatars/StRU3MWOnll1.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/41" class="online-agent-name">Tia Sanders</a> <span
-                                        class="online-agent-name">Tia Sanders</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.marketingdive.com">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.marketingdive.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:23</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Chadwick Singh"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/49/avatar/sm?v=avatars/CE9gnFqyBVAI.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/49" class="online-agent-name">Chadwick Singh</a>
-                                    <span class="online-agent-name">Chadwick Singh</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="hangouts.google.com">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">hangouts.google.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:23</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="33"
-                                            height="35"
-                                            style="display: inline-block; width: 33px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Jackson Gollan"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/40/avatar/sm?v=avatars/ypn4QhsN2Rt0.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/40" class="online-agent-name">Jackson Gollan</a>
-                                    <span class="online-agent-name">Jackson Gollan</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Envisioning</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.investopedia.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.investopedia.com"
-                                        style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=33e92dccb5fa215bfdc6a1f64d6d94d1"
-                                        src="/activity-icon/?hash=33e92dccb5fa215bfdc6a1f64d6d94d1">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.investopedia.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">0:56</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="23"
-                                            height="35"
-                                            style="display: inline-block; width: 23px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Michelle Hurley"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/50/avatar/sm?v=avatars/v6LZJRozMWta.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/50" class="online-agent-name">Michelle Hurley</a>
-                                    <span class="online-agent-name">Michelle Hurley</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.youtube.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.youtube.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=c3b33682ae13ba6eb79a3c783a415525"
-                                        src="/activity-icon/?hash=c3b33682ae13ba6eb79a3c783a415525">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.youtube.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">1:06</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="27"
-                                            height="35"
-                                            style="display: inline-block; width: 27px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Micahel Redmond"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/47/avatar/sm?v=avatars/fK2B9ialXX64.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/47" class="online-agent-name">Micahel Redmond</a>
-                                    <span class="online-agent-name">Micahel Redmond</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Build</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="www.bbc.com">
-                                    <!----><img ng-if="session.icon &amp;&amp; session.activity != 'None'"
-                                        alt="Website/app name: www.bbc.com" style="height:16px; padding-right:4px"
-                                        ng-src="/activity-icon/?hash=9414848d4a9ad1108a4f9ff006d61ff3"
-                                        src="/activity-icon/?hash=9414848d4a9ad1108a4f9ff006d61ff3">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">www.bbc.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">0:31</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="13"
-                                            height="35"
-                                            style="display: inline-block; width: 13px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                            <tr ng-repeat="session in vm.visibleSessions track by session.session"
-                                ng-class="getRowClass(session)">
-                                <!---->
-                                <td ng-if="showEmployeeName" class="online-agent-name-cell" data-toggle="tooltip"
-                                    title="Aymon Cousteau"><span class="avatar-rounded avatar-inline avatar-sm"
-                                        tm-agent-avatar-sm="session.agent"
-                                        style="background-image: url(&quot;/tm-api/agent/48/avatar/sm?v=avatars/tRuQ3WfqwQJ6.png&quot;);"><span
-                                            class="online-indicator on"
-                                            ng-class="{'idle': session.isIdle, 'paused': session.paused, 'disabled': !anyActivity}"></span></span>
-                                    <a href="#/manage/users/profile/48" class="online-agent-name">Aymon Cousteau</a>
-                                    <span class="online-agent-name">Aymon Cousteau</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showComputerName" class="online-agent-computer-cell"><a
-                                        ng-show="!session.isManual" href="#/computer/61"
-                                        class="online-agent-computer">win-035khor8ter</a> <span
-                                        ng-show="session.isManual"
-                                        class="online-agent-computer ng-hide">win-035khor8ter</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showCurrentTask" class="online-agent-task-cell"><span
-                                        class="online-agent-task">Plan</span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivityName" class="online-agent-activity-cell" data-toggle="tooltip"
-                                    title="outlook.live.com">
-                                    <!----> <span style="position:relative;top:2px;"
-                                        class="online-agent-activity">outlook.live.com</span>
-                                </td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showTimeWorked" class="online-agent-time-cell"><span
-                                        class="online-agent-task">0:26</span></td>
-                                <!---->
-                                <!---->
-                                <td ng-if="showActivity" style="zoom: 100%" class="online-agent-productivity-cell">
-                                    <!----><span sparkline="" ng-model="session.stats"
-                                        opts="{&quot;type&quot;:&quot;bar&quot;,&quot;height&quot;:35,&quot;barWidth&quot;:1,&quot;barSpacing&quot;:1,&quot;barColor&quot;:&quot;#f68a1f&quot;,&quot;chartRangeMax&quot;:10,&quot;chartRangeMin&quot;:0,&quot;disableTooltips&quot;:true}"
-                                        ng-if="session.stats &amp;&amp; session.stats != 'loading'"
-                                        class="ng-pristine ng-untouched ng-valid ng-not-empty"><canvas width="11"
-                                            height="35"
-                                            style="display: inline-block; width: 11px; height: 35px; vertical-align: top;"></canvas></span>
-                                    <!---->
-                                </td>
-                                <!---->
-                                <td>
-                                    <!----><a class="icon-link intro_tour-icon-player"
-                                        ng-click="openLivePlayer(session)" ng-if="!session.isManual"
-                                        style="cursor:pointer;"><i class="ion-ios-videocam"></i></a>
-                                    <!---->
-                                </td>
-                            </tr>
-                            <!---->
-                        </tbody>
-                        <!---->
-                    </table>
-                </div>
-                <div class="ui text loader active ng-hide" ng-show="loading" translate="COMMON.LOADING_DATA">Loading
-                    data...</div>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+{% endblock body %}
