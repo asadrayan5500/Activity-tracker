@@ -1,12 +1,11 @@
 from multiprocessing import context
-from django.shortcuts import render
 
+from django.shortcuts import render
+from .models import Index
 # Create your views here.
 def home(request):
-    # context = {
-    #     'Params' : 'I am from variable'
-    # }
-    return render(request, 'index.html' )
+    all_employees = Index.objects.all()
+    return render(request, 'index.html', { 'all_employees': all_employees } )
 
 def Act_list(request):
     return render (request, 'Act_list.html')
