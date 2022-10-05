@@ -20,16 +20,19 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+        <th scope="row"></th>
+        {% for employees in all_employees  %}
+        <td>{{employees.Activity_id}}</td>
+        <td{{employees.Employee_id}}</td>
+        <td>{{employees.start_time}}</td>
+        <td>{{employees.end_time}}</td>
+        <td>{{employees.Activity_date}}</td>
+        <td{{employees.transaction_id}}</td>
+        <td>{{employees.status}}</td>
+        <td{{employees.idle_time}}</td>
       </tr>
-      <tr>
+        {% endfor %}
+      {% comment %} <tr>
         <th scope="row">2</th>
         <td>Jacob</td>
         <td>Thornton</td>
@@ -103,7 +106,7 @@
         <td>@mdo</td>
         <td>@mdo</td>
         <td>@mdo</td>
-      </tr>
+      </tr> {% endcomment %}
     </tbody>
     
   </table>

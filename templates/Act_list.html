@@ -15,7 +15,20 @@
          
         </tr>
       </thead>
+
       <tbody>
+        <tr>
+          {% for activity in activity_list %}
+          <td>{{activity.Activity_id}}</td>
+          <td>{{activity.Activity_name}}</td>
+          <td>{{activity.Status}}</td>
+          <td>{{activity.Create_date}}</td>
+        </tr>
+          {% endfor %}
+       
+          {% comment %} <th scope="row"></th> {% endcomment %}
+          
+      {% comment %} <tbody>
         <tr>
           <th scope="row">1</th>
           <td>Mark</td>
@@ -80,7 +93,7 @@
           <td>@mdo</td>
           
           
-        </tr>
+        </tr> {% endcomment %}
       </tbody>
       
     </table>
