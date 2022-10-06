@@ -1,4 +1,6 @@
+{% load static %}
 {% extends 'base.html' %}
+
 
 {% block title %} Activity List {% endblock title %}
 
@@ -21,7 +23,7 @@
           {% for activity in activity_list %}
           <td>{{activity.Activity_id}}</td>
           <td>{{activity.Activity_name}}</td>
-          <td>{{activity.Status}}</td>
+          <td>{{activity.status}}</td>
           <td>{{activity.Create_date}}</td>
         </tr>
           {% endfor %}

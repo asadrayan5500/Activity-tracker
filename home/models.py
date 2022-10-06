@@ -5,17 +5,15 @@ from django.utils import timezone
 
 # Create your models here.
 
-<<<<<<< HEAD
+
 class ActivityList(models.Model):
     Activity_Id = models.AutoField
     Activity_name = models.CharField(max_length = 125)
     status = models.CharField(max_length = 125)
-    Create_date = models.DateField
+    Create_date = models.DateTimeField
 
 
-class Index (models.Model):
-    Activity_id = models.AutoField
-=======
+
 class Activity_List(models.Model):
 
     Activity_Id = models.CharField(max_length = 125)
@@ -26,7 +24,6 @@ class Activity_List(models.Model):
 
 class Index (models.Model):
     Activity_id = models.CharField(max_length = 122)
->>>>>>> 84250e87c7213bfb318b193a0fa5670cf6677150
     Employee_id = models.CharField(max_length = 122)
     start_time =  models.DateTimeField 
     end_time = models.DateTimeField 

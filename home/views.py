@@ -1,13 +1,13 @@
-from multiprocessing import context
-<<<<<<< HEAD
+#from multiprocessing import context
 
 from django.shortcuts import render
 from .models import Index, ActivityList
 
-=======
->>>>>>> 84250e87c7213bfb318b193a0fa5670cf6677150
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from .models import Index
 # Create your views here.
 def home(request):
@@ -15,9 +15,23 @@ def home(request):
     return render(request, 'index.html', { 'all_employees': all_employees } )
 
 def Act_list(request):
-    return render (request, 'Act_list.html')
+    activity_List = ActivityList.objects.all()
+    return render (request, 'Act_list.html' , {'activity_list': activity_List})
 
 def Login(request):
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        is_error = False
+        
+        user = authenticate( request, username=username, password=password)
+        if user is not None :
+            login( request, user )  
+            return redirect('/home')            
+        else:
+            messages.error( request , 'Wrong username or password') 
+
     return render (request,'Login.html')
 
 def Employees(request):
