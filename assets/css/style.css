@@ -85,11 +85,14 @@
     vertical-align: middle;
     margin-left: 8px;
 }
+.navbar{
+     background-color: #253053; 
+}
 
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
+    color: #ce1b1b;
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
@@ -124,6 +127,7 @@
 .navbar-light.sticky-top {
     top: -100px;
     transition: .5s;
+    /* background-color: #181d38; */
 }
 
 @media (min-width: 992px) {
@@ -440,5 +444,11 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     transition: .5s;
+} 
+/* header */
+.text-primaryy{
+    color: #06BBCC;
 }
-
+.tttt{
+    color: white;
+}

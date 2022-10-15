@@ -18,12 +18,12 @@ def Act_list(request):
     activity_List = ActivityList.objects.all()
     return render (request, 'Act_list.html' , {'activity_list': activity_List})
 
-def Login(request):
+def login(request):
 
-    if request.method == 'POST':
+    if request.method == 'POST':         
         username = request.POST['username']
         password = request.POST['password']
-        is_error = False
+    
         
         user = authenticate( request, username=username, password=password)
         if user is not None :
@@ -32,7 +32,7 @@ def Login(request):
         else:
             messages.error( request , 'Wrong username or password') 
 
-    return render (request,'Login.html')
+    return render (request,'login.html')
 
 def Employees(request):
     return render (request, 'Employees.html')
