@@ -25,3 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls'))
 ]
+
+
+
+# this is the just for checking 
